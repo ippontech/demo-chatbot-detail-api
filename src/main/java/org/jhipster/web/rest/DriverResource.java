@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -84,9 +84,17 @@ public class DriverResource {
      */
     @GetMapping("/drivers")
     @Timed
-    public List<Driver> getAllDrivers() {
+    public List<Driver> getAllDrivers() {//with the current account
         log.debug("REST request to get all Drivers");
-        return driverRepository.findAll();
+        List<Driver> res=new ArrayList<Driver>();
+
+        Driver myDriver=driverRepository.findById(Long.valueOf(29));
+        res.add(myDriver);
+        
+        String login="admin";
+       List<Driver> adminAccount=driverRepository.findByUserLogin(login);;
+        
+        return adminAccount;
         }
 
     /**
