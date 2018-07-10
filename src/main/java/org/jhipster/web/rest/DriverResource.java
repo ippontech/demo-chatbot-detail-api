@@ -103,13 +103,17 @@ public class DriverResource {
     @GetMapping("/drivers/byLogin/{login}")
     @Timed
     public List<Driver> getAllDrivers(@PathVariable String login) {// with the current account
-        log.debug("REST request to get all Drivers with the login: {}", login);
-        String userLogin="admin";
         if (SecurityUtils.getCurrentUserLogin().isPresent()){
-            userLogin=SecurityUtils.getCurrentUserLogin().get();
+            if(login.equals("admin")){
+                log.debug("REST request for admin, he has all rights");
+                return driverRepository.findAll();
+            }
+            log.debug("REST request to get all Drivers with the login: {}", SecurityUtils.getCurrentUserLogin().get());
+            log.debug("worked");
+            return driverRepository.findByUserLogin(SecurityUtils.getCurrentUserLogin().get());
         }
-        log.debug("REST request to get all Drivers with the login: {}", userLogin);
-        return driverRepository.findByUserLogin(userLogin);
+        log.debug("REST request to get all Drivers");
+        return driverRepository.findAll();
     }
 
     /**
