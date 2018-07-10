@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import org.jhipster.domain.Driver;
 
 import org.jhipster.repository.DriverRepository;
+import org.jhipster.security.SecurityUtils;
 import org.jhipster.web.rest.errors.BadRequestAlertException;
 import org.jhipster.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -36,10 +37,12 @@ public class DriverResource {
     }
 
     /**
-     * POST  /drivers : Create a new driver.
+     * POST /drivers : Create a new driver.
      *
      * @param driver the driver to create
-     * @return the ResponseEntity with status 201 (Created) and with body the new driver, or with status 400 (Bad Request) if the driver has already an ID
+     * @return the ResponseEntity with status 201 (Created) and with body the new
+     *         driver, or with status 400 (Bad Request) if the driver has already an
+     *         ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/drivers")
@@ -51,17 +54,17 @@ public class DriverResource {
         }
         Driver result = driverRepository.save(driver);
         return ResponseEntity.created(new URI("/api/drivers/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
-            .body(result);
+                .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString())).body(result);
     }
 
     /**
-     * PUT  /drivers : Updates an existing driver.
+     * PUT /drivers : Updates an existing driver.
      *
      * @param driver the driver to update
-     * @return the ResponseEntity with status 200 (OK) and with body the updated driver,
-     * or with status 400 (Bad Request) if the driver is not valid,
-     * or with status 500 (Internal Server Error) if the driver couldn't be updated
+     * @return the ResponseEntity with status 200 (OK) and with body the updated
+     *         driver, or with status 400 (Bad Request) if the driver is not valid,
+     *         or with status 500 (Internal Server Error) if the driver couldn't be
+     *         updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/drivers")
@@ -72,36 +75,49 @@ public class DriverResource {
             return createDriver(driver);
         }
         Driver result = driverRepository.save(driver);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, driver.getId().toString()))
-            .body(result);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, driver.getId().toString()))
+                .body(result);
     }
 
     /**
-     * GET  /drivers : get all the drivers.
+     * GET /drivers : get all the drivers.
      *
-     * @return the ResponseEntity with status 200 (OK) and the list of drivers in body
+     * @return the ResponseEntity with status 200 (OK) and the list of drivers in
+     *         body
      */
     @GetMapping("/drivers")
     @Timed
-    public List<Driver> getAllDrivers() {//with the current account
+    public List<Driver> getAllDrivers() {// with the current account
         log.debug("REST request to get all Drivers");
-        List<Driver> res=new ArrayList<Driver>();
 
-        Driver myDriver=driverRepository.findById(Long.valueOf(29));
-        res.add(myDriver);
-        
-        String login="admin";
-       List<Driver> adminAccount=driverRepository.findByUserLogin(login);;
-        
-        return adminAccount;
-        }
+        return driverRepository.findAll();
+    }
 
     /**
-     * GET  /drivers/:id : get the "id" driver.
+     * GET /drivers : get all the drivers.
+     *
+     * @param login the login of the driver to retrieve
+     * @return the ResponseEntity with status 200 (OK) and the list of drivers in
+     *         body
+     */
+    @GetMapping("/drivers/byLogin/{login}")
+    @Timed
+    public List<Driver> getAllDrivers(@PathVariable String login) {// with the current account
+        log.debug("REST request to get all Drivers with the login: {}", login);
+        String userLogin="admin";
+        if (SecurityUtils.getCurrentUserLogin().isPresent()){
+            userLogin=SecurityUtils.getCurrentUserLogin().get();
+        }
+        log.debug("REST request to get all Drivers with the login: {}", userLogin);
+        return driverRepository.findByUserLogin(userLogin);
+    }
+
+    /**
+     * GET /drivers/:id : get the "id" driver.
      *
      * @param id the id of the driver to retrieve
-     * @return the ResponseEntity with status 200 (OK) and with body the driver, or with status 404 (Not Found)
+     * @return the ResponseEntity with status 200 (OK) and with body the driver, or
+     *         with status 404 (Not Found)
      */
     @GetMapping("/drivers/{id}")
     @Timed
@@ -112,7 +128,7 @@ public class DriverResource {
     }
 
     /**
-     * DELETE  /drivers/:id : delete the "id" driver.
+     * DELETE /drivers/:id : delete the "id" driver.
      *
      * @param id the id of the driver to delete
      * @return the ResponseEntity with status 200 (OK)

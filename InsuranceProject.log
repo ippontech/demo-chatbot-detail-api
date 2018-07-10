@@ -1,0 +1,210 @@
+2018-07-09 09:36:31.876  INFO 2793 --- [restartedMain] com.ippon.myapp.InsuranceProjectApp      : The following profiles are active: dev,swagger
+2018-07-09 09:36:36.785 DEBUG 2793 --- [restartedMain] c.ippon.myapp.config.AsyncConfiguration  : Creating Async Task Executor
+2018-07-09 09:36:38.910 DEBUG 2793 --- [restartedMain] c.i.myapp.config.MetricsConfiguration    : Registering JVM gauges
+2018-07-09 09:36:39.021 DEBUG 2793 --- [restartedMain] c.i.myapp.config.MetricsConfiguration    : Monitoring the datasource
+2018-07-09 09:36:39.035 DEBUG 2793 --- [restartedMain] c.i.myapp.config.MetricsConfiguration    : Initializing Metrics JMX reporting
+2018-07-09 09:36:43.427  INFO 2793 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Web application configuration, using profiles: dev
+2018-07-09 09:36:43.430 DEBUG 2793 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Initializing Metrics registries
+2018-07-09 09:36:43.437 DEBUG 2793 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Registering Metrics Filter
+2018-07-09 09:36:43.437 DEBUG 2793 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Registering Metrics Servlet
+2018-07-09 09:36:43.443 DEBUG 2793 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Initialize H2 console
+2018-07-09 09:36:43.446  INFO 2793 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Web application fully configured
+2018-07-09 09:36:43.612 DEBUG 2793 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Configuring Hazelcast
+2018-07-09 09:36:43.653 DEBUG 2793 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Configuring Hazelcast clustering for instanceId: InsuranceProject
+2018-07-09 09:36:43.653 DEBUG 2793 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Application is running with the "dev" profile, Hazelcast cluster will only work with localhost instances
+2018-07-09 09:36:43.803  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2018-07-09 09:36:44.128  INFO 2793 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2018-07-09 09:36:44.128  INFO 2793 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2018-07-09 09:36:44.340  INFO 2793 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2018-07-09 09:36:44.340  INFO 2793 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2018-07-09 09:36:44.648  INFO 2793 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-07-09 09:36:44.687  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-07-09 09:36:44.687  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-07-09 09:36:44.687  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-07-09 09:36:44.688  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-07-09 09:36:44.688  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-07-09 09:36:44.688  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2018-07-09 09:36:44.688  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-07-09 09:36:45.380  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-07-09 09:36:45.384  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 5
+2018-07-09 09:36:45.388  INFO 2793 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 12
+2018-07-09 09:36:45.395  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1531143405393 with initial instances count: 1
+2018-07-09 09:36:45.425 DEBUG 2793 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Adding Hazelcast (dev) cluster member 127.0.0.1:13781
+2018-07-09 09:36:45.498  INFO 2793 --- [restartedMain] com.hazelcast.instance.AddressPicker     : [LOCAL] [dev] [3.9.4] Picked [127.0.0.1]:13782, using socket ServerSocket[addr=/0:0:0:0:0:0:0:0,localport=13782], bind any local is true
+2018-07-09 09:36:45.517  INFO 2793 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13782 [dev] [3.9.4] Hazelcast 3.9.4 (20180420 - b8001d5) starting at [127.0.0.1]:13782
+2018-07-09 09:36:45.517  INFO 2793 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13782 [dev] [3.9.4] Copyright (c) 2008-2018, Hazelcast, Inc. All Rights Reserved.
+2018-07-09 09:36:45.517  INFO 2793 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13782 [dev] [3.9.4] Configured Hazelcast Serialization version: 1
+2018-07-09 09:36:45.857  INFO 2793 --- [restartedMain] c.h.s.i.o.impl.BackpressureRegulator     : [127.0.0.1]:13782 [dev] [3.9.4] Backpressure is disabled
+2018-07-09 09:36:46.610  INFO 2793 --- [restartedMain] com.hazelcast.instance.Node              : [127.0.0.1]:13782 [dev] [3.9.4] Creating TcpIpJoiner
+2018-07-09 09:36:47.742  INFO 2793 --- [restartedMain] c.h.s.i.o.impl.OperationExecutorImpl     : [127.0.0.1]:13782 [dev] [3.9.4] Starting 8 partition threads and 5 generic threads (1 dedicated for priority tasks)
+2018-07-09 09:36:47.746  INFO 2793 --- [restartedMain] c.h.internal.diagnostics.Diagnostics     : [127.0.0.1]:13782 [dev] [3.9.4] Diagnostics disabled. To enable add -Dhazelcast.diagnostics.enabled=true to the JVM arguments.
+2018-07-09 09:36:47.755  INFO 2793 --- [restartedMain] com.hazelcast.core.LifecycleService      : [127.0.0.1]:13782 [dev] [3.9.4] [127.0.0.1]:13782 is STARTING
+2018-07-09 09:36:47.796  INFO 2793 --- [hz.InsuranceProject.cached.thread-3] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:36:47.804  INFO 2793 --- [hz.InsuranceProject.cached.thread-3] c.h.nio.tcp.TcpIpConnectionManager       : [127.0.0.1]:13782 [dev] [3.9.4] Established socket connection between /127.0.0.1:53055 and /127.0.0.1:13781
+2018-07-09 09:36:50.562  INFO 2793 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:4ade1eb7ec5d71cb289d4d231c41d29d - Re-registering apps/INSURANCEPROJECT
+2018-07-09 09:36:50.564  INFO 2793 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:4ade1eb7ec5d71cb289d4d231c41d29d: registering service...
+2018-07-09 09:36:50.740  INFO 2793 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:4ade1eb7ec5d71cb289d4d231c41d29d - registration status: 204
+2018-07-09 09:36:54.847  INFO 2793 --- [hz.InsuranceProject.priority-generic-operation.thread-0] com.hazelcast.system                     : [127.0.0.1]:13782 [dev] [3.9.4] Cluster version set to 3.9
+2018-07-09 09:36:54.857  INFO 2793 --- [hz.InsuranceProject.priority-generic-operation.thread-0] c.h.internal.cluster.ClusterService      : [127.0.0.1]:13782 [dev] [3.9.4] 
+
+Members {size:2, ver:2} [
+	Member [127.0.0.1]:13781 - 8a0f66cd-882d-424d-8b97-b82b5d583fcd
+	Member [127.0.0.1]:13782 - 8ef2235d-102a-4d4c-b471-2fccd1ef4c1d this
+]
+
+2018-07-09 09:36:56.852  INFO 2793 --- [restartedMain] com.hazelcast.core.LifecycleService      : [127.0.0.1]:13782 [dev] [3.9.4] [127.0.0.1]:13782 is STARTED
+2018-07-09 09:36:57.045 DEBUG 2793 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Starting HazelcastCacheManager
+2018-07-09 09:36:57.519 DEBUG 2793 --- [restartedMain] c.i.myapp.config.DatabaseConfiguration   : Configuring Liquibase
+2018-07-09 09:36:57.838  WARN 2793 --- [insurance-project-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Starting Liquibase asynchronously, your database might not be ready at startup!
+2018-07-09 09:37:00.485  INFO 2793 --- [restartedMain] c.h.h.HazelcastCacheRegionFactory        : Starting up HazelcastCacheRegionFactory
+2018-07-09 09:37:00.523  INFO 2793 --- [restartedMain] c.h.h.i.IHazelcastInstanceFactory        : Using existing HazelcastInstance [InsuranceProject].
+2018-07-09 09:37:01.081 DEBUG 2793 --- [insurance-project-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Liquibase has updated your database in 3241 ms
+2018-07-09 09:37:09.053  WARN 2793 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-07-09 09:37:09.068  WARN 2793 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-07-09 09:37:11.297 DEBUG 2793 --- [restartedMain] i.g.j.c.apidoc.SwaggerAutoConfiguration  : Starting Swagger
+2018-07-09 09:37:13.858 DEBUG 2793 --- [restartedMain] i.g.j.c.apidoc.SwaggerAutoConfiguration  : Started Swagger in 57 ms
+2018-07-09 09:37:19.420  INFO 2793 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1531143439420, current=UP, previous=STARTING]
+2018-07-09 09:37:19.424  INFO 2793 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:4ade1eb7ec5d71cb289d4d231c41d29d: registering service...
+2018-07-09 09:37:19.596  INFO 2793 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:4ade1eb7ec5d71cb289d4d231c41d29d - registration status: 204
+2018-07-09 09:37:20.474  INFO 2793 --- [restartedMain] com.ippon.myapp.InsuranceProjectApp      : Started InsuranceProjectApp in 53.042 seconds (JVM running for 54.12)
+2018-07-09 09:37:20.490  INFO 2793 --- [restartedMain] com.ippon.myapp.InsuranceProjectApp      : 
+----------------------------------------------------------
+	Application 'InsuranceProject' is running! Access URLs:
+	Local: 		http://localhost:8081
+	External: 	http://192.168.86.39:8081
+	Profile(s): 	[dev, swagger]
+----------------------------------------------------------
+2018-07-09 09:37:20.491  INFO 2793 --- [restartedMain] com.ippon.myapp.InsuranceProjectApp      : 
+----------------------------------------------------------
+	Config Server: 	Connected to the JHipster Registry config server, using https://github.com/jhipster/jhipster-registry-sample-config !
+----------------------------------------------------------
+2018-07-09 09:37:49.397 DEBUG 2793 --- [XNIO-2 task-1] c.ippon.myapp.aop.logging.LoggingAspect  : Enter: com.ippon.myapp.web.rest.DriverResource.getAllDrivers() with argument[s] = []
+2018-07-09 09:37:49.427 DEBUG 2793 --- [XNIO-2 task-1] com.ippon.myapp.web.rest.DriverResource  : REST request to get all
+2018-07-09 09:37:49.808 DEBUG 2793 --- [XNIO-2 task-1] c.ippon.myapp.aop.logging.LoggingAspect  : Exit: com.ippon.myapp.web.rest.DriverResource.getAllDrivers() with result = []
+2018-07-09 09:42:51.603  INFO 3038 --- [restartedMain] com.ippon.myapp.InsuranceProjectApp      : The following profiles are active: dev,swagger
+2018-07-09 09:42:56.494 DEBUG 3038 --- [restartedMain] c.ippon.myapp.config.AsyncConfiguration  : Creating Async Task Executor
+2018-07-09 09:42:58.211 DEBUG 3038 --- [restartedMain] c.i.myapp.config.MetricsConfiguration    : Registering JVM gauges
+2018-07-09 09:42:58.677 DEBUG 3038 --- [restartedMain] c.i.myapp.config.MetricsConfiguration    : Monitoring the datasource
+2018-07-09 09:42:58.690 DEBUG 3038 --- [restartedMain] c.i.myapp.config.MetricsConfiguration    : Initializing Metrics JMX reporting
+2018-07-09 09:43:03.633  INFO 3038 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Web application configuration, using profiles: dev
+2018-07-09 09:43:03.656 DEBUG 3038 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Initializing Metrics registries
+2018-07-09 09:43:03.689 DEBUG 3038 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Registering Metrics Filter
+2018-07-09 09:43:03.692 DEBUG 3038 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Registering Metrics Servlet
+2018-07-09 09:43:03.727 DEBUG 3038 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Initialize H2 console
+2018-07-09 09:43:03.731  INFO 3038 --- [restartedMain] com.ippon.myapp.config.WebConfigurer     : Web application fully configured
+2018-07-09 09:43:04.315 DEBUG 3038 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Configuring Hazelcast
+2018-07-09 09:43:04.737 DEBUG 3038 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Configuring Hazelcast clustering for instanceId: InsuranceProject
+2018-07-09 09:43:04.737 DEBUG 3038 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Application is running with the "dev" profile, Hazelcast cluster will only work with localhost instances
+2018-07-09 09:43:04.996  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2018-07-09 09:43:06.213  INFO 3038 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2018-07-09 09:43:06.213  INFO 3038 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2018-07-09 09:43:07.167  INFO 3038 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2018-07-09 09:43:07.167  INFO 3038 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2018-07-09 09:43:08.283  INFO 3038 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-07-09 09:43:08.445  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-07-09 09:43:08.445  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-07-09 09:43:08.446  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-07-09 09:43:08.446  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-07-09 09:43:08.446  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-07-09 09:43:08.446  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2018-07-09 09:43:08.447  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-07-09 09:43:10.252  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-07-09 09:43:10.266  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 5
+2018-07-09 09:43:10.273  INFO 3038 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 12
+2018-07-09 09:43:10.295  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1531143790280 with initial instances count: 1
+2018-07-09 09:43:10.326 DEBUG 3038 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Adding Hazelcast (dev) cluster member 127.0.0.1:13781
+2018-07-09 09:43:10.734  INFO 3038 --- [restartedMain] com.hazelcast.instance.AddressPicker     : [LOCAL] [dev] [3.9.4] Picked [127.0.0.1]:13782, using socket ServerSocket[addr=/0:0:0:0:0:0:0:0,localport=13782], bind any local is true
+2018-07-09 09:43:10.888  INFO 3038 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13782 [dev] [3.9.4] Hazelcast 3.9.4 (20180420 - b8001d5) starting at [127.0.0.1]:13782
+2018-07-09 09:43:10.889  INFO 3038 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13782 [dev] [3.9.4] Copyright (c) 2008-2018, Hazelcast, Inc. All Rights Reserved.
+2018-07-09 09:43:10.889  INFO 3038 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13782 [dev] [3.9.4] Configured Hazelcast Serialization version: 1
+2018-07-09 09:43:12.766  INFO 3038 --- [restartedMain] c.h.s.i.o.impl.BackpressureRegulator     : [127.0.0.1]:13782 [dev] [3.9.4] Backpressure is disabled
+2018-07-09 09:43:13.916  INFO 3038 --- [restartedMain] com.hazelcast.instance.Node              : [127.0.0.1]:13782 [dev] [3.9.4] Creating TcpIpJoiner
+2018-07-09 09:43:14.323  INFO 3038 --- [restartedMain] c.h.s.i.o.impl.OperationExecutorImpl     : [127.0.0.1]:13782 [dev] [3.9.4] Starting 8 partition threads and 5 generic threads (1 dedicated for priority tasks)
+2018-07-09 09:43:14.334  INFO 3038 --- [restartedMain] c.h.internal.diagnostics.Diagnostics     : [127.0.0.1]:13782 [dev] [3.9.4] Diagnostics disabled. To enable add -Dhazelcast.diagnostics.enabled=true to the JVM arguments.
+2018-07-09 09:43:14.355  INFO 3038 --- [restartedMain] com.hazelcast.core.LifecycleService      : [127.0.0.1]:13782 [dev] [3.9.4] [127.0.0.1]:13782 is STARTING
+2018-07-09 09:43:14.405  INFO 3038 --- [hz.InsuranceProject.cached.thread-3] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:43:14.414  INFO 3038 --- [hz.InsuranceProject.cached.thread-3] c.h.nio.tcp.TcpIpConnectionManager       : [127.0.0.1]:13782 [dev] [3.9.4] Established socket connection between /127.0.0.1:54824 and /127.0.0.1:13781
+2018-07-09 09:43:15.435  INFO 3038 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:54f889d51bfc43c584f6f3ab188950e7 - Re-registering apps/INSURANCEPROJECT
+2018-07-09 09:43:15.436  INFO 3038 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:54f889d51bfc43c584f6f3ab188950e7: registering service...
+2018-07-09 09:43:15.667  INFO 3038 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:54f889d51bfc43c584f6f3ab188950e7 - registration status: 204
+2018-07-09 09:43:21.442  INFO 3038 --- [hz.InsuranceProject.priority-generic-operation.thread-0] com.hazelcast.system                     : [127.0.0.1]:13782 [dev] [3.9.4] Cluster version set to 3.9
+2018-07-09 09:43:21.448  INFO 3038 --- [hz.InsuranceProject.priority-generic-operation.thread-0] c.h.internal.cluster.ClusterService      : [127.0.0.1]:13782 [dev] [3.9.4] 
+
+Members {size:2, ver:4} [
+	Member [127.0.0.1]:13781 - 8a0f66cd-882d-424d-8b97-b82b5d583fcd
+	Member [127.0.0.1]:13782 - 4368a6ba-e6df-4c16-9e9c-02d2ed6d691a this
+]
+
+2018-07-09 09:43:23.463  INFO 3038 --- [restartedMain] com.hazelcast.core.LifecycleService      : [127.0.0.1]:13782 [dev] [3.9.4] [127.0.0.1]:13782 is STARTED
+2018-07-09 09:43:23.514 DEBUG 3038 --- [restartedMain] c.ippon.myapp.config.CacheConfiguration  : Starting HazelcastCacheManager
+2018-07-09 09:43:24.088 DEBUG 3038 --- [restartedMain] c.i.myapp.config.DatabaseConfiguration   : Configuring Liquibase
+2018-07-09 09:43:24.516  WARN 3038 --- [insurance-project-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Starting Liquibase asynchronously, your database might not be ready at startup!
+2018-07-09 09:43:27.454 DEBUG 3038 --- [insurance-project-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Liquibase has updated your database in 2938 ms
+2018-07-09 09:43:27.476  INFO 3038 --- [restartedMain] c.h.h.HazelcastCacheRegionFactory        : Starting up HazelcastCacheRegionFactory
+2018-07-09 09:43:27.481  INFO 3038 --- [restartedMain] c.h.h.i.IHazelcastInstanceFactory        : Using existing HazelcastInstance [InsuranceProject].
+2018-07-09 09:43:33.759  WARN 3038 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-07-09 09:43:33.775  WARN 3038 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-07-09 09:43:34.537 DEBUG 3038 --- [restartedMain] i.g.j.c.apidoc.SwaggerAutoConfiguration  : Starting Swagger
+2018-07-09 09:43:34.558 DEBUG 3038 --- [restartedMain] i.g.j.c.apidoc.SwaggerAutoConfiguration  : Started Swagger in 20 ms
+2018-07-09 09:43:36.186  INFO 3038 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1531143816186, current=UP, previous=STARTING]
+2018-07-09 09:43:36.189  INFO 3038 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:54f889d51bfc43c584f6f3ab188950e7: registering service...
+2018-07-09 09:43:36.348  INFO 3038 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INSURANCEPROJECT/InsuranceProject:54f889d51bfc43c584f6f3ab188950e7 - registration status: 204
+2018-07-09 09:43:37.051  INFO 3038 --- [restartedMain] com.ippon.myapp.InsuranceProjectApp      : Started InsuranceProjectApp in 50.47 seconds (JVM running for 51.577)
+2018-07-09 09:43:37.068  INFO 3038 --- [restartedMain] com.ippon.myapp.InsuranceProjectApp      : 
+----------------------------------------------------------
+	Application 'InsuranceProject' is running! Access URLs:
+	Local: 		http://localhost:8081
+	External: 	http://192.168.86.39:8081
+	Profile(s): 	[dev, swagger]
+----------------------------------------------------------
+2018-07-09 09:43:37.069  INFO 3038 --- [restartedMain] com.ippon.myapp.InsuranceProjectApp      : 
+----------------------------------------------------------
+	Config Server: 	Connected to the JHipster Registry config server, using https://github.com/jhipster/jhipster-registry-sample-config !
+----------------------------------------------------------
+2018-07-09 09:46:12.028 DEBUG 3038 --- [XNIO-2 task-1] c.ippon.myapp.aop.logging.LoggingAspect  : Enter: com.ippon.myapp.web.rest.DriverResource.getAllDrivers() with argument[s] = []
+2018-07-09 09:46:12.045 DEBUG 3038 --- [XNIO-2 task-1] com.ippon.myapp.web.rest.DriverResource  : REST request to get all
+2018-07-09 09:46:12.245 DEBUG 3038 --- [XNIO-2 task-1] c.ippon.myapp.aop.logging.LoggingAspect  : Exit: com.ippon.myapp.web.rest.DriverResource.getAllDrivers() with result = []
+2018-07-09 09:46:30.899 DEBUG 3038 --- [XNIO-2 task-2] c.ippon.myapp.aop.logging.LoggingAspect  : Enter: com.ippon.myapp.web.rest.InsurancePlanResource.getAllInsurancePlans() with argument[s] = []
+2018-07-09 09:46:30.948 DEBUG 3038 --- [XNIO-2 task-2] c.i.m.web.rest.InsurancePlanResource     : REST request to get all InsurancePlans
+2018-07-09 09:46:30.984 DEBUG 3038 --- [XNIO-2 task-2] c.ippon.myapp.aop.logging.LoggingAspect  : Exit: com.ippon.myapp.web.rest.InsurancePlanResource.getAllInsurancePlans() with result = []
+2018-07-09 09:46:38.140 DEBUG 3038 --- [XNIO-2 task-3] c.ippon.myapp.aop.logging.LoggingAspect  : Enter: com.ippon.myapp.web.rest.VehicleResource.getAllVehicles() with argument[s] = [insuranceplan-is-null]
+2018-07-09 09:46:38.186 DEBUG 3038 --- [XNIO-2 task-3] c.ippon.myapp.web.rest.VehicleResource   : REST request to get all Vehicles where insurancePlan is null
+2018-07-09 09:46:38.206 DEBUG 3038 --- [XNIO-2 task-3] c.ippon.myapp.aop.logging.LoggingAspect  : Exit: com.ippon.myapp.web.rest.VehicleResource.getAllVehicles() with result = []
+2018-07-09 09:46:44.802 DEBUG 3038 --- [XNIO-2 task-4] c.ippon.myapp.aop.logging.LoggingAspect  : Enter: com.ippon.myapp.web.rest.InsurancePlanResource.createInsurancePlan() with argument[s] = [InsurancePlan{id=null, name='null', summary='null', yearlyPremium=null, monthlyPremium=null, deductable=null, coveragePerPerson=null, coveragePerAccident=null, bodilyInjury='false', propertyDamage='false', personalInjuryProtection='false', roadsideAssistance='false', collision='false', comprehensive='false', accidentForgiveness='false', uninsuredMotoristInjury='false', uninsuredMotoristProperty='false'}]
+2018-07-09 09:46:44.802 DEBUG 3038 --- [XNIO-2 task-4] c.i.m.web.rest.InsurancePlanResource     : REST request to save InsurancePlan : InsurancePlan{id=null, name='null', summary='null', yearlyPremium=null, monthlyPremium=null, deductable=null, coveragePerPerson=null, coveragePerAccident=null, bodilyInjury='false', propertyDamage='false', personalInjuryProtection='false', roadsideAssistance='false', collision='false', comprehensive='false', accidentForgiveness='false', uninsuredMotoristInjury='false', uninsuredMotoristProperty='false'}
+2018-07-09 09:46:44.998 DEBUG 3038 --- [XNIO-2 task-4] c.ippon.myapp.aop.logging.LoggingAspect  : Exit: com.ippon.myapp.web.rest.InsurancePlanResource.createInsurancePlan() with result = <201 Created,InsurancePlan{id=1, name='null', summary='null', yearlyPremium=null, monthlyPremium=null, deductable=null, coveragePerPerson=null, coveragePerAccident=null, bodilyInjury='false', propertyDamage='false', personalInjuryProtection='false', roadsideAssistance='false', collision='false', comprehensive='false', accidentForgiveness='false', uninsuredMotoristInjury='false', uninsuredMotoristProperty='false'},{Location=[/api/insurance-plans/1], X-insuranceProjectApp-alert=[A new insurancePlan is created with identifier 1], X-insuranceProjectApp-params=[1]}>
+2018-07-09 09:47:31.004 DEBUG 3038 --- [XNIO-2 task-5] c.ippon.myapp.aop.logging.LoggingAspect  : Enter: com.ippon.myapp.web.rest.InsurancePlanResource.getAllInsurancePlans() with argument[s] = []
+2018-07-09 09:47:31.025 DEBUG 3038 --- [XNIO-2 task-5] c.i.m.web.rest.InsurancePlanResource     : REST request to get all InsurancePlans
+2018-07-09 09:47:31.319 DEBUG 3038 --- [XNIO-2 task-5] c.ippon.myapp.aop.logging.LoggingAspect  : Exit: com.ippon.myapp.web.rest.InsurancePlanResource.getAllInsurancePlans() with result = [InsurancePlan{id=1, name='null', summary='null', yearlyPremium=null, monthlyPremium=null, deductable=null, coveragePerPerson=null, coveragePerAccident=null, bodilyInjury='false', propertyDamage='false', personalInjuryProtection='false', roadsideAssistance='false', collision='false', comprehensive='false', accidentForgiveness='false', uninsuredMotoristInjury='false', uninsuredMotoristProperty='false'}]
+2018-07-09 09:48:08.495  INFO 3038 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-07-09 09:49:39.183  INFO 3038 --- [hz.InsuranceProject.IO.thread-in-0] com.hazelcast.nio.tcp.TcpIpConnection    : [127.0.0.1]:13782 [dev] [3.9.4] Connection[id=1, /127.0.0.1:54824->/127.0.0.1:13781, endpoint=[127.0.0.1]:13781, alive=false, type=MEMBER] closed. Reason: Connection closed by the other side
+2018-07-09 09:49:39.210  INFO 3038 --- [hz.InsuranceProject.cached.thread-9] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:49:39.219  INFO 3038 --- [hz.InsuranceProject.cached.thread-9] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Could not connect to: /127.0.0.1:13781. Reason: SocketException[Connection refused to address /127.0.0.1:13781]
+2018-07-09 09:49:39.299  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:49:39.300  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Could not connect to: /127.0.0.1:13781. Reason: SocketException[Connection refused to address /127.0.0.1:13781]
+2018-07-09 09:49:39.326  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:49:39.327  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Could not connect to: /127.0.0.1:13781. Reason: SocketException[Connection refused to address /127.0.0.1:13781]
+2018-07-09 09:49:39.405  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:49:39.405  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Could not connect to: /127.0.0.1:13781. Reason: SocketException[Connection refused to address /127.0.0.1:13781]
+2018-07-09 09:49:39.432  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:49:39.434  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Could not connect to: /127.0.0.1:13781. Reason: SocketException[Connection refused to address /127.0.0.1:13781]
+2018-07-09 09:49:39.507  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:49:39.509  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Could not connect to: /127.0.0.1:13781. Reason: SocketException[Connection refused to address /127.0.0.1:13781]
+2018-07-09 09:49:39.535  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Connecting to /127.0.0.1:13781, timeout: 0, bind-any: true
+2018-07-09 09:49:39.538  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] com.hazelcast.nio.tcp.TcpIpConnector     : [127.0.0.1]:13782 [dev] [3.9.4] Could not connect to: /127.0.0.1:13781. Reason: SocketException[Connection refused to address /127.0.0.1:13781]
+2018-07-09 09:49:39.540  WARN 3038 --- [hz.InsuranceProject.cached.thread-1] c.h.nio.tcp.TcpIpConnectionErrorHandler  : [127.0.0.1]:13782 [dev] [3.9.4] Removing connection to endpoint [127.0.0.1]:13781 Cause => java.net.SocketException {Connection refused to address /127.0.0.1:13781}, Error-Count: 5
+2018-07-09 09:49:39.545  WARN 3038 --- [hz.InsuranceProject.cached.thread-1] c.h.i.cluster.impl.MembershipManager     : [127.0.0.1]:13782 [dev] [3.9.4] Member [127.0.0.1]:13781 - 8a0f66cd-882d-424d-8b97-b82b5d583fcd is suspected to be dead for reason: No connection
+2018-07-09 09:49:39.546  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] c.h.i.cluster.impl.MembershipManager     : [127.0.0.1]:13782 [dev] [3.9.4] Starting mastership claim process...
+2018-07-09 09:49:39.547  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] c.h.i.cluster.impl.MembershipManager     : [127.0.0.1]:13782 [dev] [3.9.4] Local MembersView{version=4, members=[MemberInfo{address=[127.0.0.1]:13781, uuid=8a0f66cd-882d-424d-8b97-b82b5d583fcd, liteMember=false}, MemberInfo{address=[127.0.0.1]:13782, uuid=4368a6ba-e6df-4c16-9e9c-02d2ed6d691a, liteMember=false}]} with suspected members: [[127.0.0.1]:13781] and initial addresses to ask: []
+2018-07-09 09:49:39.575  INFO 3038 --- [hz.InsuranceProject.cached.thread-9] c.h.internal.cluster.ClusterService      : [127.0.0.1]:13782 [dev] [3.9.4] 
+
+Members {size:1, ver:5} [
+	Member [127.0.0.1]:13782 - 4368a6ba-e6df-4c16-9e9c-02d2ed6d691a this
+]
+
+2018-07-09 09:49:39.577  INFO 3038 --- [hz.InsuranceProject.cached.thread-9] c.h.i.cluster.impl.MembershipManager     : [127.0.0.1]:13782 [dev] [3.9.4] Mastership is claimed with: MembersView{version=5, members=[MemberInfo{address=[127.0.0.1]:13782, uuid=4368a6ba-e6df-4c16-9e9c-02d2ed6d691a, liteMember=false}]}
+2018-07-09 09:49:39.579  INFO 3038 --- [hz.InsuranceProject.cached.thread-1] c.h.t.TransactionManagerService          : [127.0.0.1]:13782 [dev] [3.9.4] Committing/rolling-back alive transactions of Member [127.0.0.1]:13781 - 8a0f66cd-882d-424d-8b97-b82b5d583fcd, UUID: 8a0f66cd-882d-424d-8b97-b82b5d583fcd
+2018-07-09 09:49:39.583  INFO 3038 --- [hz.InsuranceProject.migration] c.h.i.p.InternalPartitionService         : [127.0.0.1]:13782 [dev] [3.9.4] Fetching most recent partition table! my version: 1490
+2018-07-09 09:49:39.584  INFO 3038 --- [hz.InsuranceProject.migration] c.h.i.p.InternalPartitionService         : [127.0.0.1]:13782 [dev] [3.9.4] Most recent partition table version: 1490
+2018-07-09 09:49:39.733  INFO 3038 --- [hz.InsuranceProject.migration] c.h.i.partition.impl.MigrationManager    : [127.0.0.1]:13782 [dev] [3.9.4] Partition balance is ok, no need to re-partition cluster data... 
+2018-07-09 09:49:46.443  INFO 3038 --- [hz.ShutdownThread] com.hazelcast.instance.Node              : [127.0.0.1]:13782 [dev] [3.9.4] Running shutdown hook... Current state: ACTIVE
