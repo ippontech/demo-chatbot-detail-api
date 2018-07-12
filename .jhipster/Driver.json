@@ -1,0 +1,51 @@
+{
+    "name": "Driver",
+    "fields": [
+        {
+            "fieldName": "userLogin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "licenseDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "pastAccident",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "zipCode",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vehicle",
+            "otherEntityName": "vehicle",
+            "otherEntityRelationshipName": "driver"
+        }
+    ],
+    "changelogDate": "20180712190223",
+    "entityTableName": "driver",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "insuranceMicroservice"
+}

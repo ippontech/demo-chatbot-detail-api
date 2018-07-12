@@ -1,0 +1,51 @@
+{
+    "name": "Claim",
+    "fields": [
+        {
+            "fieldName": "injuryInvolved",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "accidentDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "accidentTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "accidentCity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accidentState",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "passengersInCars",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "damageDescription",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "vehicle",
+            "otherEntityName": "vehicle",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180712190225",
+    "entityTableName": "claim",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "insuranceMicroservice"
+}

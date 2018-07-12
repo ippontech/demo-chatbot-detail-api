@@ -1,0 +1,53 @@
+{
+    "name": "Vehicle",
+    "fields": [
+        {
+            "fieldName": "make",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "mileage",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "vin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "insuranceId",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "claim",
+            "otherEntityName": "claim",
+            "otherEntityRelationshipName": "vehicle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "driver",
+            "otherEntityName": "driver",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180712190226",
+    "entityTableName": "vehicle",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "insuranceMicroservice"
+}

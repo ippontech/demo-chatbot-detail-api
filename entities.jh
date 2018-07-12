@@ -1,0 +1,39 @@
+entity Driver {
+  userLogin String,
+  firstName String,
+  lastName String,
+  birthDate LocalDate,
+  licenseDate LocalDate,
+  pastAccident Integer,
+  zipCode Long
+}
+entity InsurancePlan {
+    name String,
+    summary String,
+    yearlyPremium BigDecimal,
+    deductable BigDecimal,
+    coveragePerPerson BigDecimal,
+    coveragePerAccident BigDecimal
+}
+entity Claim {
+    injuryInvolved Boolean,
+    accidentDate LocalDate,
+    accidentTime Instant,
+    accidentCity String,
+    accidentState String,
+    passengersInCars Boolean,
+    damageDescription String
+}
+entity Vehicle {
+  make String,
+  model String,
+  year Integer,
+  mileage Long,
+  vin String,
+  insuranceId Integer
+}
+relationship OneToMany {
+    Driver{vehicle} to Vehicle{driver},
+    Vehicle{claim} to Claim{vehicle}
+}
+

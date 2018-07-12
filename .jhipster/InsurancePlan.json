@@ -1,0 +1,40 @@
+{
+    "name": "InsurancePlan",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "summary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "yearlyPremium",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "deductable",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "coveragePerPerson",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "coveragePerAccident",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180712190224",
+    "entityTableName": "insurance_plan",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "insuranceMicroservice"
+}
