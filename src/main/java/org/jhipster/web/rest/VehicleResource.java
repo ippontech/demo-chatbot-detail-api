@@ -73,6 +73,7 @@ public class VehicleResource {
         if (vehicle.getId() == null) {
             return createVehicle(vehicle);
         }
+        //log.debug("the insurance of the the vehicle is the number: {}", vehicle.getInsurancedetails().getLevel());
         Vehicle result = vehicleRepository.save(vehicle);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, vehicle.getId().toString()))
