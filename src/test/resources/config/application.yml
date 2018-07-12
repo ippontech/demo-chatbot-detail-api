@@ -3,8 +3,8 @@
 #
 # This configuration is used for unit/integration tests.
 #
-# More information on profiles: http://www.jhipster.tech/profiles/
-# More information on configuration properties: http://www.jhipster.tech/common-application-properties/
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # ===================================================================
@@ -15,21 +15,19 @@
 
 eureka:
     client:
-        enabled: true
+        enabled: false
     instance:
-        appname: microservice
-        instanceId: microservice:${spring.application.instance-id:${random.value}}
+        appname: insuranceMicroservice
+        instanceId: insuranceMicroservice:${spring.application.instance-id:${random.value}}
 
 spring:
     application:
-        name: microservice
-    jackson:
-        serialization.write_dates_as_timestamps: false
+        name: insuranceMicroservice
     cache:
         type: simple
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:microservice;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:insuranceMicroservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
         name:
         username:
         password:
@@ -49,6 +47,8 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
             hibernate.hbm2ddl.auto: validate
+    liquibase:
+        contexts: test
     mail:
         host: localhost
     messages:
@@ -57,10 +57,8 @@ spring:
         favicon:
             enabled: false
     thymeleaf:
-        mode: XHTML
-
-liquibase:
-    contexts: test
+        mode: HTML
+        
 
 server:
     port: 10344
@@ -73,7 +71,7 @@ info:
 # ===================================================================
 # JHipster specific properties
 #
-# Full reference is available at: http://www.jhipster.tech/common-application-properties/
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 jhipster:
@@ -91,7 +89,7 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: 9c31d94a52bc61dcd36f64559bb05b966fee2ed5
+                secret: cb8e95fb3578145ed04e5e45d5372132e64756f1
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
@@ -106,7 +104,7 @@ jhipster:
 # to have type-safe configuration, like in the JHipsterProperties above
 #
 # More documentation is available at:
-# http://www.jhipster.tech/common-application-properties/
+# https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-application:
+# application:

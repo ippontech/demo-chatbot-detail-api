@@ -3,8 +3,8 @@
 #
 # This configuration overrides the application.yml file.
 #
-# More information on profiles: http://www.jhipster.tech/profiles/
-# More information on configuration properties: http://www.jhipster.tech/common-application-properties/
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # ===================================================================
@@ -16,8 +16,8 @@
 logging:
     level:
         ROOT: DEBUG
-        org.jhipster: DEBUG
         io.github.jhipster: DEBUG
+        tech.ippon.chatbotdemo: DEBUG
 
 eureka:
     instance:
@@ -34,13 +34,13 @@ spring:
         restart:
             enabled: true
         livereload:
-            enabled: false # we use gulp + BrowserSync for livereload
+            enabled: false # we use Webpack dev server + BrowserSync for livereload
     jackson:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:file:./target/h2db/db/microservice;DB_CLOSE_DELAY=-1
-        username: microservice
+        url: jdbc:h2:mem:insurancemicroservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        username: insuranceMicroservice
         password:
     h2:
         console:
@@ -51,16 +51,22 @@ spring:
         show-sql: true
         properties:
             hibernate.id.new_generator_mappings: true
-            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_second_level_cache: true
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
+            hibernate.cache.region.factory_class: com.hazelcast.hibernate.HazelcastCacheRegionFactory
+            hibernate.cache.hazelcast.instance_name: insuranceMicroservice
+            hibernate.cache.use_minimal_puts: true
+            hibernate.cache.hazelcast.use_lite_member: true
+    liquibase:
+        contexts: dev
     mail:
         host: localhost
         port: 25
         username:
         password:
     messages:
-        cache-seconds: 1
+        cache-duration: PT1S # 1 second, see the ISO 8601 standard
     thymeleaf:
         cache: false
     zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
@@ -70,12 +76,9 @@ spring:
             discovery:
                 enabled: true
 
-liquibase:
-    contexts: dev
-
 # ===================================================================
 # To enable SSL, generate a certificate using:
-# keytool -genkey -alias microservice -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+# keytool -genkey -alias insurancemicroservice -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 #
 # You can also use Let's Encrypt:
 # https://maximilian-boehm.com/hp2121/Create-a-Java-Keystore-JKS-from-Let-s-Encrypt-Certificates.htm
@@ -88,7 +91,7 @@ liquibase:
 #        key-store: keystore.p12
 #        key-store-password: <your-password>
 #        key-store-type: PKCS12
-#        key-alias: microservice
+#        key-alias: insurancemicroservice
 # ===================================================================
 server:
     port: 8081
@@ -96,7 +99,7 @@ server:
 # ===================================================================
 # JHipster specific properties
 #
-# Full reference is available at: http://www.jhipster.tech/common-application-properties/
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 jhipster:
@@ -127,18 +130,11 @@ jhipster:
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: microservice@localhost
+        from: insuranceMicroservice@localhost
         base-url: http://127.0.0.1:8081
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
-        jmx.enabled: true
-        graphite: # Use the "graphite" Maven profile to have the Graphite dependencies
-            enabled: false
-            host: localhost
-            port: 2003
-            prefix: microservice
-        prometheus: # Use the "prometheus" Maven profile to have the Prometheus dependencies
-            enabled: false
-            endpoint: /prometheusMetrics
+        jmx:
+            enabled: true
         logs: # Reports Dropwizard metrics in the logs
             enabled: false
             report-frequency: 60 # in seconds
@@ -148,10 +144,6 @@ jhipster:
             host: localhost
             port: 5000
             queue-size: 512
-        spectator-metrics: # Reports Spectator Circuit Breaker metrics in the logs
-            enabled: false
-            # edit spring.metrics.export.delay-millis to set report frequency
-
 
 # ===================================================================
 # Application specific properties
@@ -159,7 +151,7 @@ jhipster:
 # to have type-safe configuration, like in the JHipsterProperties above
 #
 # More documentation is available at:
-# http://www.jhipster.tech/common-application-properties/
+# https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-application:
+# application:
