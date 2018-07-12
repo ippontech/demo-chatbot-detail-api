@@ -31,6 +31,8 @@ public class VehicleResource {
 
     private final VehicleRepository vehicleRepository;
 
+    //private final DriverRepository driverRepository; 
+
     public VehicleResource(VehicleRepository vehicleRepository) {
         this.vehicleRepository = vehicleRepository;
     }
@@ -85,7 +87,8 @@ public class VehicleResource {
     @GetMapping("/vehicles")
     @Timed
     public List<Vehicle> getAllVehicles() {
-        log.debug("REST request to get all Vehicles");
+        log.debug("REST request to get all Vehicles");        
+        //if(driverRepository.findByUserLogin(SecurityUtils.getCurrentUserLogin().get());
         return vehicleRepository.findAll();
         }
 

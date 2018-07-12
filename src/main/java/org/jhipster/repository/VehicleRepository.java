@@ -13,4 +13,7 @@ import org.springframework.data.jpa.repository.*;
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
+    // @Query("select vehicle from Vehicle vehicle where vehicle.driver = :driver")
+    // List<Driver> findByDriver(@Param("driver") Driver driver);
+
 }
