@@ -17,6 +17,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
+import tech.ippon.chatbotdemo.security.SecurityUtils;
+
 /**
  * REST controller for managing Vehicle.
  */
@@ -84,7 +86,16 @@ public class VehicleResource {
     @GetMapping("/vehicles")
     @Timed
     public List<Vehicle> getAllVehicles() {
-        log.debug("REST request to get all Vehicles");
+        if (SecurityUtils.getCurrentUserLogin().isPresent()){
+            String login=SecurityUtils.getCurrentUserLogin().get();
+            if(login.equals("admin")){
+                log.debug("REST request for admin, he has all rights");
+                return vehicleRepository.findAll();
+            }
+            log.debug("REST request to get all Drivers with the login: {}",login );
+            return vehicleRepository.findByDriverUserLogin(login);
+        }
+        log.debug("REST request to get all Drivers");
         return vehicleRepository.findAll();
     }
 
