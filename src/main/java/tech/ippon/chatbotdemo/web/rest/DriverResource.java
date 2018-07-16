@@ -11,11 +11,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+
+
+import tech.ippon.chatbotdemo.security.SecurityUtils;
 
 /**
  * REST controller for managing Driver.
@@ -75,19 +80,29 @@ public class DriverResource {
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, driver.getId().toString()))
             .body(result);
     }
-
     /**
-     * GET  /drivers : get all the drivers.
+     * GET /drivers : get all the drivers.
      *
-     * @return the ResponseEntity with status 200 (OK) and the list of drivers in body
+     * @param login the login of the driver to retrieve
+     * @return the ResponseEntity with status 200 (OK) and the list of drivers in
+     *         body
      */
     @GetMapping("/drivers")
     @Timed
-    public List<Driver> getAllDrivers() {
+    public List<Driver> getAllDrivers() {// with the current account
+        if (SecurityUtils.getCurrentUserLogin().isPresent()){
+            String login=SecurityUtils.getCurrentUserLogin().get();
+            if(login.equals("admin")){
+                log.debug("REST request for admin, he has all rights");
+                return driverRepository.findAll();
+            }
+            log.debug("REST request to get all Drivers with the login: {}",login );
+            return driverRepository.findByUserLogin(login);
+        }
         log.debug("REST request to get all Drivers");
         return driverRepository.findAll();
     }
-
+    
     /**
      * GET  /drivers/:id : get the "id" driver.
      *
