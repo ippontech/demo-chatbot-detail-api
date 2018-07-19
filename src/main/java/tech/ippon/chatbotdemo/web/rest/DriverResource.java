@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
-
+import tech.ippon.chatbotdemo.security.AuthoritiesConstants;
 import tech.ippon.chatbotdemo.security.SecurityUtils;
 
 /**
@@ -84,15 +84,15 @@ public class DriverResource {
      * GET /drivers : get all the drivers.
      *
      * @param login the login of the driver to retrieve
-     * @return the ResponseEntity with status 200 (OK) and the list of drivers in
-     *         body
+     * @return the ResponseEntity with status 200 (OK) and the list of drivers in body
      */
     @GetMapping("/drivers")
     @Timed
-    public List<Driver> getAllDrivers() {// with the current account
+    public List<Driver> getAllDrivers() {// associated with the current account
         if (SecurityUtils.getCurrentUserLogin().isPresent()){
             String login=SecurityUtils.getCurrentUserLogin().get();
-            if(login.equals("admin")){
+            // SecurityContextHolder.getContext().getAuthentication();
+            if(SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN)){
                 log.debug("REST request for admin, he has all rights");
                 return driverRepository.findAll();
             }
