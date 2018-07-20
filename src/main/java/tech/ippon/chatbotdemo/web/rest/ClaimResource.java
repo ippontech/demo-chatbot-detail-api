@@ -17,6 +17,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
+import tech.ippon.chatbotdemo.security.SecurityUtils;
+
 /**
  * REST controller for managing Claim.
  */
@@ -30,8 +32,11 @@ public class ClaimResource {
 
     private final ClaimRepository claimRepository;
 
+    //private final ClaimService claimService;
+
     public ClaimResource(ClaimRepository claimRepository) {
         this.claimRepository = claimRepository;
+        // this.claimService = claimService;
     }
 
     /**
@@ -76,7 +81,7 @@ public class ClaimResource {
             .body(result);
     }
 
-    /**
+     /**
      * GET  /claims : get all the claims.
      *
      * @return the ResponseEntity with status 200 (OK) and the list of claims in body
@@ -86,6 +91,20 @@ public class ClaimResource {
     public List<Claim> getAllClaims() {
         log.debug("REST request to get all Claims");
         return claimRepository.findAll();
+    }
+
+
+   /**
+     * GET  /claims : get all the claims.
+     *
+     * @param id the id of the vehicle to retrieve
+     * @return the ResponseEntity with status 200 (OK) and the list of claims in body
+     */
+    @GetMapping("/claims/byVehicle/{id}")
+    @Timed
+    public List<Claim> getAllClaimsByCarId(@PathVariable Long id) {
+        log.debug("REST request to get all Claims with Drivers' id: {}", id);
+        return claimRepository.findByVehicleId(id);
     }
 
     /**
