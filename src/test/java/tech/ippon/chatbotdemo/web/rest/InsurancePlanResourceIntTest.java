@@ -4,7 +4,10 @@ import tech.ippon.chatbotdemo.InsuranceMicroserviceApp;
 
 import tech.ippon.chatbotdemo.domain.InsurancePlan;
 import tech.ippon.chatbotdemo.repository.InsurancePlanRepository;
+import tech.ippon.chatbotdemo.service.InsurancePlanService;
 import tech.ippon.chatbotdemo.web.rest.errors.ExceptionTranslator;
+import tech.ippon.chatbotdemo.service.dto.InsurancePlanCriteria;
+import tech.ippon.chatbotdemo.service.InsurancePlanQueryService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -61,6 +64,13 @@ public class InsurancePlanResourceIntTest {
     @Autowired
     private InsurancePlanRepository insurancePlanRepository;
 
+    
+
+    @Autowired
+    private InsurancePlanService insurancePlanService;
+
+    @Autowired
+    private InsurancePlanQueryService insurancePlanQueryService;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -81,7 +91,7 @@ public class InsurancePlanResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final InsurancePlanResource insurancePlanResource = new InsurancePlanResource(insurancePlanRepository);
+        final InsurancePlanResource insurancePlanResource = new InsurancePlanResource(insurancePlanService, insurancePlanQueryService);
         this.restInsurancePlanMockMvc = MockMvcBuilders.standaloneSetup(insurancePlanResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -191,6 +201,267 @@ public class InsurancePlanResourceIntTest {
             .andExpect(jsonPath("$.coveragePerPerson").value(DEFAULT_COVERAGE_PER_PERSON.intValue()))
             .andExpect(jsonPath("$.coveragePerAccident").value(DEFAULT_COVERAGE_PER_ACCIDENT.intValue()));
     }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByNameIsEqualToSomething() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where name equals to DEFAULT_NAME
+        defaultInsurancePlanShouldBeFound("name.equals=" + DEFAULT_NAME);
+
+        // Get all the insurancePlanList where name equals to UPDATED_NAME
+        defaultInsurancePlanShouldNotBeFound("name.equals=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByNameIsInShouldWork() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where name in DEFAULT_NAME or UPDATED_NAME
+        defaultInsurancePlanShouldBeFound("name.in=" + DEFAULT_NAME + "," + UPDATED_NAME);
+
+        // Get all the insurancePlanList where name equals to UPDATED_NAME
+        defaultInsurancePlanShouldNotBeFound("name.in=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByNameIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where name is not null
+        defaultInsurancePlanShouldBeFound("name.specified=true");
+
+        // Get all the insurancePlanList where name is null
+        defaultInsurancePlanShouldNotBeFound("name.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansBySummaryIsEqualToSomething() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where summary equals to DEFAULT_SUMMARY
+        defaultInsurancePlanShouldBeFound("summary.equals=" + DEFAULT_SUMMARY);
+
+        // Get all the insurancePlanList where summary equals to UPDATED_SUMMARY
+        defaultInsurancePlanShouldNotBeFound("summary.equals=" + UPDATED_SUMMARY);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansBySummaryIsInShouldWork() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where summary in DEFAULT_SUMMARY or UPDATED_SUMMARY
+        defaultInsurancePlanShouldBeFound("summary.in=" + DEFAULT_SUMMARY + "," + UPDATED_SUMMARY);
+
+        // Get all the insurancePlanList where summary equals to UPDATED_SUMMARY
+        defaultInsurancePlanShouldNotBeFound("summary.in=" + UPDATED_SUMMARY);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansBySummaryIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where summary is not null
+        defaultInsurancePlanShouldBeFound("summary.specified=true");
+
+        // Get all the insurancePlanList where summary is null
+        defaultInsurancePlanShouldNotBeFound("summary.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByYearlyPremiumIsEqualToSomething() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where yearlyPremium equals to DEFAULT_YEARLY_PREMIUM
+        defaultInsurancePlanShouldBeFound("yearlyPremium.equals=" + DEFAULT_YEARLY_PREMIUM);
+
+        // Get all the insurancePlanList where yearlyPremium equals to UPDATED_YEARLY_PREMIUM
+        defaultInsurancePlanShouldNotBeFound("yearlyPremium.equals=" + UPDATED_YEARLY_PREMIUM);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByYearlyPremiumIsInShouldWork() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where yearlyPremium in DEFAULT_YEARLY_PREMIUM or UPDATED_YEARLY_PREMIUM
+        defaultInsurancePlanShouldBeFound("yearlyPremium.in=" + DEFAULT_YEARLY_PREMIUM + "," + UPDATED_YEARLY_PREMIUM);
+
+        // Get all the insurancePlanList where yearlyPremium equals to UPDATED_YEARLY_PREMIUM
+        defaultInsurancePlanShouldNotBeFound("yearlyPremium.in=" + UPDATED_YEARLY_PREMIUM);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByYearlyPremiumIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where yearlyPremium is not null
+        defaultInsurancePlanShouldBeFound("yearlyPremium.specified=true");
+
+        // Get all the insurancePlanList where yearlyPremium is null
+        defaultInsurancePlanShouldNotBeFound("yearlyPremium.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByDeductableIsEqualToSomething() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where deductable equals to DEFAULT_DEDUCTABLE
+        defaultInsurancePlanShouldBeFound("deductable.equals=" + DEFAULT_DEDUCTABLE);
+
+        // Get all the insurancePlanList where deductable equals to UPDATED_DEDUCTABLE
+        defaultInsurancePlanShouldNotBeFound("deductable.equals=" + UPDATED_DEDUCTABLE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByDeductableIsInShouldWork() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where deductable in DEFAULT_DEDUCTABLE or UPDATED_DEDUCTABLE
+        defaultInsurancePlanShouldBeFound("deductable.in=" + DEFAULT_DEDUCTABLE + "," + UPDATED_DEDUCTABLE);
+
+        // Get all the insurancePlanList where deductable equals to UPDATED_DEDUCTABLE
+        defaultInsurancePlanShouldNotBeFound("deductable.in=" + UPDATED_DEDUCTABLE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByDeductableIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where deductable is not null
+        defaultInsurancePlanShouldBeFound("deductable.specified=true");
+
+        // Get all the insurancePlanList where deductable is null
+        defaultInsurancePlanShouldNotBeFound("deductable.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByCoveragePerPersonIsEqualToSomething() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where coveragePerPerson equals to DEFAULT_COVERAGE_PER_PERSON
+        defaultInsurancePlanShouldBeFound("coveragePerPerson.equals=" + DEFAULT_COVERAGE_PER_PERSON);
+
+        // Get all the insurancePlanList where coveragePerPerson equals to UPDATED_COVERAGE_PER_PERSON
+        defaultInsurancePlanShouldNotBeFound("coveragePerPerson.equals=" + UPDATED_COVERAGE_PER_PERSON);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByCoveragePerPersonIsInShouldWork() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where coveragePerPerson in DEFAULT_COVERAGE_PER_PERSON or UPDATED_COVERAGE_PER_PERSON
+        defaultInsurancePlanShouldBeFound("coveragePerPerson.in=" + DEFAULT_COVERAGE_PER_PERSON + "," + UPDATED_COVERAGE_PER_PERSON);
+
+        // Get all the insurancePlanList where coveragePerPerson equals to UPDATED_COVERAGE_PER_PERSON
+        defaultInsurancePlanShouldNotBeFound("coveragePerPerson.in=" + UPDATED_COVERAGE_PER_PERSON);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByCoveragePerPersonIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where coveragePerPerson is not null
+        defaultInsurancePlanShouldBeFound("coveragePerPerson.specified=true");
+
+        // Get all the insurancePlanList where coveragePerPerson is null
+        defaultInsurancePlanShouldNotBeFound("coveragePerPerson.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByCoveragePerAccidentIsEqualToSomething() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where coveragePerAccident equals to DEFAULT_COVERAGE_PER_ACCIDENT
+        defaultInsurancePlanShouldBeFound("coveragePerAccident.equals=" + DEFAULT_COVERAGE_PER_ACCIDENT);
+
+        // Get all the insurancePlanList where coveragePerAccident equals to UPDATED_COVERAGE_PER_ACCIDENT
+        defaultInsurancePlanShouldNotBeFound("coveragePerAccident.equals=" + UPDATED_COVERAGE_PER_ACCIDENT);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByCoveragePerAccidentIsInShouldWork() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where coveragePerAccident in DEFAULT_COVERAGE_PER_ACCIDENT or UPDATED_COVERAGE_PER_ACCIDENT
+        defaultInsurancePlanShouldBeFound("coveragePerAccident.in=" + DEFAULT_COVERAGE_PER_ACCIDENT + "," + UPDATED_COVERAGE_PER_ACCIDENT);
+
+        // Get all the insurancePlanList where coveragePerAccident equals to UPDATED_COVERAGE_PER_ACCIDENT
+        defaultInsurancePlanShouldNotBeFound("coveragePerAccident.in=" + UPDATED_COVERAGE_PER_ACCIDENT);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInsurancePlansByCoveragePerAccidentIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        insurancePlanRepository.saveAndFlush(insurancePlan);
+
+        // Get all the insurancePlanList where coveragePerAccident is not null
+        defaultInsurancePlanShouldBeFound("coveragePerAccident.specified=true");
+
+        // Get all the insurancePlanList where coveragePerAccident is null
+        defaultInsurancePlanShouldNotBeFound("coveragePerAccident.specified=false");
+    }
+    /**
+     * Executes the search, and checks that the default entity is returned
+     */
+    private void defaultInsurancePlanShouldBeFound(String filter) throws Exception {
+        restInsurancePlanMockMvc.perform(get("/api/insurance-plans?sort=id,desc&" + filter))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(insurancePlan.getId().intValue())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].summary").value(hasItem(DEFAULT_SUMMARY.toString())))
+            .andExpect(jsonPath("$.[*].yearlyPremium").value(hasItem(DEFAULT_YEARLY_PREMIUM.intValue())))
+            .andExpect(jsonPath("$.[*].deductable").value(hasItem(DEFAULT_DEDUCTABLE.intValue())))
+            .andExpect(jsonPath("$.[*].coveragePerPerson").value(hasItem(DEFAULT_COVERAGE_PER_PERSON.intValue())))
+            .andExpect(jsonPath("$.[*].coveragePerAccident").value(hasItem(DEFAULT_COVERAGE_PER_ACCIDENT.intValue())));
+    }
+
+    /**
+     * Executes the search, and checks that the default entity is not returned
+     */
+    private void defaultInsurancePlanShouldNotBeFound(String filter) throws Exception {
+        restInsurancePlanMockMvc.perform(get("/api/insurance-plans?sort=id,desc&" + filter))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andExpect(jsonPath("$").isArray())
+            .andExpect(jsonPath("$").isEmpty());
+    }
+
     @Test
     @Transactional
     public void getNonExistingInsurancePlan() throws Exception {
@@ -203,7 +474,7 @@ public class InsurancePlanResourceIntTest {
     @Transactional
     public void updateInsurancePlan() throws Exception {
         // Initialize the database
-        insurancePlanRepository.saveAndFlush(insurancePlan);
+        insurancePlanService.save(insurancePlan);
 
         int databaseSizeBeforeUpdate = insurancePlanRepository.findAll().size();
 
@@ -258,7 +529,7 @@ public class InsurancePlanResourceIntTest {
     @Transactional
     public void deleteInsurancePlan() throws Exception {
         // Initialize the database
-        insurancePlanRepository.saveAndFlush(insurancePlan);
+        insurancePlanService.save(insurancePlan);
 
         int databaseSizeBeforeDelete = insurancePlanRepository.findAll().size();
 

@@ -2,9 +2,11 @@ package tech.ippon.chatbotdemo.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import tech.ippon.chatbotdemo.domain.InsurancePlan;
-import tech.ippon.chatbotdemo.repository.InsurancePlanRepository;
+import tech.ippon.chatbotdemo.service.InsurancePlanService;
 import tech.ippon.chatbotdemo.web.rest.errors.BadRequestAlertException;
 import tech.ippon.chatbotdemo.web.rest.util.HeaderUtil;
+import tech.ippon.chatbotdemo.service.dto.InsurancePlanCriteria;
+import tech.ippon.chatbotdemo.service.InsurancePlanQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,10 +30,13 @@ public class InsurancePlanResource {
 
     private static final String ENTITY_NAME = "insurancePlan";
 
-    private final InsurancePlanRepository insurancePlanRepository;
+    private final InsurancePlanService insurancePlanService;
 
-    public InsurancePlanResource(InsurancePlanRepository insurancePlanRepository) {
-        this.insurancePlanRepository = insurancePlanRepository;
+    private final InsurancePlanQueryService insurancePlanQueryService;
+
+    public InsurancePlanResource(InsurancePlanService insurancePlanService, InsurancePlanQueryService insurancePlanQueryService) {
+        this.insurancePlanService = insurancePlanService;
+        this.insurancePlanQueryService = insurancePlanQueryService;
     }
 
     /**
@@ -48,7 +53,7 @@ public class InsurancePlanResource {
         if (insurancePlan.getId() != null) {
             throw new BadRequestAlertException("A new insurancePlan cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        InsurancePlan result = insurancePlanRepository.save(insurancePlan);
+        InsurancePlan result = insurancePlanService.save(insurancePlan);
         return ResponseEntity.created(new URI("/api/insurance-plans/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -70,7 +75,7 @@ public class InsurancePlanResource {
         if (insurancePlan.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        InsurancePlan result = insurancePlanRepository.save(insurancePlan);
+        InsurancePlan result = insurancePlanService.save(insurancePlan);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, insurancePlan.getId().toString()))
             .body(result);
@@ -79,13 +84,15 @@ public class InsurancePlanResource {
     /**
      * GET  /insurance-plans : get all the insurancePlans.
      *
+     * @param criteria the criterias which the requested entities should match
      * @return the ResponseEntity with status 200 (OK) and the list of insurancePlans in body
      */
     @GetMapping("/insurance-plans")
     @Timed
-    public List<InsurancePlan> getAllInsurancePlans() {
-        log.debug("REST request to get all InsurancePlans");
-        return insurancePlanRepository.findAll();
+    public ResponseEntity<List<InsurancePlan>> getAllInsurancePlans(InsurancePlanCriteria criteria) {
+        log.debug("REST request to get InsurancePlans by criteria: {}", criteria);
+        List<InsurancePlan> entityList = insurancePlanQueryService.findByCriteria(criteria);
+        return ResponseEntity.ok().body(entityList);
     }
 
     /**
@@ -98,7 +105,7 @@ public class InsurancePlanResource {
     @Timed
     public ResponseEntity<InsurancePlan> getInsurancePlan(@PathVariable Long id) {
         log.debug("REST request to get InsurancePlan : {}", id);
-        Optional<InsurancePlan> insurancePlan = insurancePlanRepository.findById(id);
+        Optional<InsurancePlan> insurancePlan = insurancePlanService.findOne(id);
         return ResponseUtil.wrapOrNotFound(insurancePlan);
     }
 
@@ -112,8 +119,7 @@ public class InsurancePlanResource {
     @Timed
     public ResponseEntity<Void> deleteInsurancePlan(@PathVariable Long id) {
         log.debug("REST request to delete InsurancePlan : {}", id);
-
-        insurancePlanRepository.deleteById(id);
+        insurancePlanService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
 }
