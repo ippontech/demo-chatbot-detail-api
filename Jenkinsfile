@@ -34,4 +34,10 @@ node {
         sh "scp -i 'gateway.pem' '../Insurance Microservice/target/insurance-microservice-0.0.1-SNAPSHOT.war' ec2-user@ec2-35-174-136-82.compute-1.amazonaws.com:/home/ec2-user/app/insuranceMicroservice/"
         sh "ssh -i 'gateway.pem' ec2-user@ec2-35-174-136-82.compute-1.amazonaws.com sudo service insuranceMicroservice start"
     }
+
+    stage('upload package to instance 1'){
+        sh "ssh -i 'gateway.pem' ec2-user@ec2-54-172-53-119.compute-1.amazonaws.com sudo service insuranceMicroservice stop"
+        sh "scp -i 'gateway.pem' '../Insurance Microservice/target/insurance-microservice-0.0.1-SNAPSHOT.war' ec2-user@ec2-54-172-53-119.compute-1.amazonaws.com:/home/ec2-user/app/insuranceMicroservice/"
+        sh "ssh -i 'gateway.pem' ec2-user@ec2-54-172-53-119.compute-1.amazonaws.com sudo service insuranceMicroservice start"
+    }
 }
