@@ -36,7 +36,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://intern2018-chatbot.cewfon7xqsuk.us-east-1.rds.amazonaws.com:3306/insuranceMicroservice?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: insurance_user
-        password: rva-micro
+        password: '{cipher}467b85142f6af33adbb759c27464095a3b54eb46ba3fbdb723db6c08000d00d2'
         hikari:
             data-source-properties:
                 cachePrepStmts: true
